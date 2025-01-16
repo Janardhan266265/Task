@@ -1,0 +1,14 @@
+﻿<div ng-app="FeatureFlagApp" ng-controller="FeatureFlagController">
+    <h1>Feature Flags</h1>
+    <input type="text" ng-model="newFeature.name" placeholder="Feature Name">
+    <input type="text" ng-model="newFeature.domain" placeholder="Domain">
+    <button ng-click="addFeatureFlag()">Add Feature Flag</button>
+
+    <ul>
+        <li ng-repeat="flag in featureFlags">
+            {{flag.name}} ({{flag.domain}})
+            <input type="checkbox" ng-model="flag.isEnabled" ng-change="updateFeatureFlag(flag)">
+            <button ng-click="deleteFeatureFlag(flag.id)">Delete</button>
+        </li>
+    </ul>
+</div>
